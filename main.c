@@ -4,43 +4,26 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	int x, y;   // 두 개의 입력 정수 
-	char op;   // 연산자 문자 
-	int result;   // 연산 결과 저장 
+	int answer = 59;
+	int trial = 0;
+    int number; 
 	
-	// 두 개의 입력정수, 한 개의 연산자 문자 입력 받기 
-	printf("enter the calculation : ");
-	scanf("%d %c %d", &x, &op, &y);
-	
-	// 연산자에 따라 결과값을 계산 (result에 저장) 
-	if(op == '+')   // + 인 경우 
-	    result = x + y;
-	else if(op == '-')   // - 인 경우 
-	    result = x - y;
-	else if(op == '*')   // * 인 경우 
-	    result = x * y;
-	else   // / 인 경우 
-	    result = x / y;	    
-	    
-	
-	// switch 사용 
-	switch(op)
+	do
 	{
-		case '+':
-		    result = x + y;
-		    break;
-		case '-':
-		    result = x - y;
-		    break;
-		case '*':
-		    result = x * y;
-		    break;
-		case '/':
-		    result = x / y;
-		    break;
-	}
+		printf("Guess a number : ");   /// 입력하라 문제 출력 
+		scanf("%d", &number);   /// 입력을 받음
+		trial++;   /// 시도 횟수 계산 
+		
+		/// 입력숫자가 정답보다 큰지 작은지 출력 
+		if(number > answer)
+		    printf("high!\n");
+		else if(number < answer)
+		    printf("low!\n");		
+	 } 
+	while (number != answer);
 	
-	printf("The result is %d", result);
-	
+	printf("\nCongratulation! Number of trial = %i\n", trial);   // 결과, 횟수 출력 
+		
 	return 0;
 }
+
